@@ -115,9 +115,57 @@ find data -name '*.txt' | sed -e 's|\.txt|.ann|g' | xargs touch
 
 4. Open the brat link in your web browser (Chrome would be the best choice). Move your mouse to the blue chunk on the top, and click "Login". Enter your username and password you just set in your terminal during the installation. 
 
-5. Go to "Colletion" on the top left corner. Go to your new folders and click on the text you want to work on.
+5. Go to "Colletion" on the top left corner. Go to your new folders and click on the text you want to work on. Start annotating!
 
-6. Start annotating!
+6. If you would like to edit the entity, relation, and color of each entity, before annotating you need to do the following:
+
+Find "annotation.conf" and "visual.conf" files. They're both in the /data folder of your brat installation (depending on how your corpora are set up they may be in the same folder as your .txt and .ann files.) Edit these two files as following:
+
+For annotation.conf, if you see this in brat when you select a word: 
+
+![](https://raw.githubusercontent.com/wanxinxie/brat_installation/main/Entity%20type.png)
+
+and see this in brat when you link two words:
+
+![](https://raw.githubusercontent.com/wanxinxie/brat_installation/main/relation.png)
+
+your "annotation.conf" file probably contains the following:
+
+```
+[entities]
+
+Person
+Organization
+Geo-political entity
+
+[relations]
+
+Family
+Alias
+```
+
+If you would like to add a new entity type, just add the type name on a new line under "[entities]".
+
+Relations are a bit more complicated as they can take a variety of restrictions (e.g., the relation can only exist between entities of particular types).
+I believe you can just add another type in the same way as with entity types, but if you want to restrict by type, you can do something like:
+```
+Family  Arg1:<Person>, Arg2:<Person>
+```
+or even
+```
+Family  Arg1:<Person>, Arg2:<Person>, <REL-TYPE>:symmetric-transitive
+```
+(notice that there should be a tab between Family and the rest of it, not a space)
+
+The "visual.conf" file will then control the corresponding visualization of each entity type. You'll want to add a new line under the [drawing] section to specify a color for the highlighting, like this:
+```
+Family  bgColor:#EDC1F0
+```
+(specify your color in [hex notation](https://www.google.com/search?q=color+picker))
+
+(notice that there should be a tab between Family and the rest of it, not a space)
+
+
 
 More details  could be found in [their official instruction](https://brat.nlplab.org/installation.html).
 
