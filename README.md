@@ -4,7 +4,7 @@ This tutorial is based on [their official instruction](https://brat.nlplab.org/i
 
 # Before Installation
 ## Python
-Make sure you have python 2.5+ on your device. If you don't have python, please follow the following steps for python 3 installation.
+Make sure you have python 2 on your device. If you don't have python, please follow the following steps for python 2 installation.
 
 1. Open "Terminal", first you can install Xcode by running the command:
 ```
@@ -26,11 +26,11 @@ Your system is ready to brew.
 
 3. Now you can install python 3 by running the command:
 ```
-brew install python3
+brew install python@2
 ```
 You can check whether python3 has been successfully installed by:
 ```
-$ python3 --version
+python --version
 ```
 It should return something like 
 ```
@@ -43,7 +43,7 @@ python
 ```
 It should return something like 
 ```
-Python 2.7.17
+Python 2.7.9
 ```
 # Installation
 1. Download [brat installation package](http://weaver.nlplab.org/~brat/releases/brat-v1.3_Crunchy_Frog.tar.gz)
