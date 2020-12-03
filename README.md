@@ -1,8 +1,10 @@
-# brat_installation
+# Brat Coreference Project
+This is an overview of a coreference project starting from training data preparation to using the trained model for coreference.
+
+# Step1: Installation
 This is a installation tutorial for [brat rapid annotation tool](https://brat.nlplab.org/) on Mac OS.
 This tutorial is based on [their official instruction](https://brat.nlplab.org/installation.html).
 
-# Before Installation
 ## Python
 Make sure you have python 2 on your device. If you don't have python, please follow the following steps for python 2 installation.
 
