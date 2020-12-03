@@ -48,7 +48,7 @@ It should return something like
 ```
 Python 2.7.9
 ```
-# Brat
+## Brat
 1. Download [brat installation package](http://weaver.nlplab.org/~brat/releases/brat-v1.3_Crunchy_Frog.tar.gz)
 
 2. Unzip the package, then open terminal and go to the unzipped folder. For instance, if you put the folder (whose name is "brat-v1.3_Crunchy_Frog") in Desktop, then you may run:
