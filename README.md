@@ -1,7 +1,8 @@
 # Brat Coreference Project
 This is an overview of a coreference project starting from training data preparation to using the trained model for coreference.
 
-# Step1: Installation
+# Step1: Annotation with Brat
+# 1. Installation
 This is a installation tutorial for [brat rapid annotation tool](https://brat.nlplab.org/) on Mac OS.
 This tutorial is based on [their official instruction](https://brat.nlplab.org/installation.html).
 
@@ -47,7 +48,7 @@ It should return something like
 ```
 Python 2.7.9
 ```
-# Installation
+# Brat
 1. Download [brat installation package](http://weaver.nlplab.org/~brat/releases/brat-v1.3_Crunchy_Frog.tar.gz)
 
 2. Unzip the package, then open terminal and go to the unzipped folder. For instance, if you put the folder (whose name is "brat-v1.3_Crunchy_Frog") in Desktop, then you may run:
@@ -102,7 +103,7 @@ It should provide a link to brat, which looks like
 Serving brat at http://127.0.0.1:8080
 ```
 
-# Using New Data
+# 2. Using New Data
 1. Create new folders in brat-v1.3_Crunchy_Frog/data/. Put the text you would like to annotate in the new folders in txt format.
 
 2. Open a new terminal. Go to your brat directory.For instance, if you put the folder (whose name is "brat-v1.3_Crunchy_Frog") in Desktop, then you may run:
