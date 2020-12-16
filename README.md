@@ -172,4 +172,51 @@ Family  bgColor:#EDC1F0
 
 More details  could be found in [their official instruction](https://brat.nlplab.org/installation.html).
 
+# Step2: CONLL file transformation
+1. Enter brat github repository through [this link](https://github.com/nlplab/brat)
 
+2. Click on the green button says "Code" and choose "Download ZIP"
+
+3. Unzip the downloaded folder
+
+4. Put your txt and ann files into folder brat-master/tools 
+
+5. Open terminal, go to brat-master/tools folder
+For instance, if you put brat-master folder in Desktop, run the command:
+```
+cd Desktop/brat-master/tools
+```
+
+6. Create CONLL file by running the command (assume you have example.txt and example.ann):
+```
+python3 anntoconll.py -a .ann example.txt
+```
+Then you can find example.conll created in brat-master/tools folder.
+
+# Step3: Training
+1. Enter brat github repository through [this link](https://github.com/dbamman/lrec2020-coref)
+
+2. Click on the green button says "Code" and choose "Download ZIP"
+
+3. Unzip the downloaded folder 
+
+4. Open requirment.txt in the folder; delete "pkg-resources==0.0.0" in line 9; make sure to save the change.
+
+5.Open terminal, go to lrec2020-coref folder
+For instance, if you put lrec2020-coref folder in Desktop, run the command:
+```
+cd Desktop/lrec2020-coref
+```
+
+6. Run the command:
+```
+pip3 install -r requirements.txt
+```
+If you see some errors in the end, saying probabily something like this:
+```
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+spacy 2.1.0 requires jsonschema<3.0.0,>=2.6.0, but you have jsonschema 3.0.1 which is incompatible.
+```
+As long as the package in the requirment.txt is the correct version, ignore the error.
+
+7. Follow the instruction from [this step](https://github.com/dbamman/lrec2020-coref#create-10-fold-cross-validation-data)
