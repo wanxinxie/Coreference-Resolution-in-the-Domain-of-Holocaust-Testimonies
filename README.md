@@ -193,8 +193,9 @@ python3 anntoconll.py -a .ann example.txt
 ```
 Then you can find example.conll created in brat-master/tools folder.
 
-# Step3: Training
-1. Enter brat github repository through [this link](https://github.com/dbamman/lrec2020-coref)
+# Step3: Training (Credit to [UCB Professor David Bamman's GitHub repo](https://github.com/dbamman))
+
+1. Enter brat github repository through [this link](https://github.com/dbamman/lrec2020-coref) 
 
 2. Click on the green button says "Code" and choose "Download ZIP"
 
