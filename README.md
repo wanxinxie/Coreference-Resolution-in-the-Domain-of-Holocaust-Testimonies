@@ -18,14 +18,7 @@ xcode-select --install
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-You can check whether brew has been successfully installed by:
-```
-brew doctor
-```
-It should return something like 
-```
-Your system is ready to brew.
-```
+
 
 3. Now you can install python 3 by running the command:
 ```
