@@ -104,7 +104,7 @@ Serving brat at http://127.0.0.1:8080
 ```
 
 # 2. Using New Data
-1. Create new folders in brat-v1.3_Crunchy_Frog/data/. Put the text you would like to annotate in the new folders in txt format.
+1. Create new folders in brat-v1.3_Crunchy_Frog/data/. Put the text you would like to annotate in the new folders in txt format.For our current project, download [annotation.conf](https://drive.google.com/file/d/1tWaT34BVbHWM9pHJe5COty4ouoGT8ch-/view?usp=sharing) and [visual.conf](https://drive.google.com/file/d/1DmHAwsyKw-pYTPHuYeS1dMpOyLQbATZu/view?usp=sharing).
 
 2. Open a new terminal. Go to your brat directory.For instance, if you put the folder (whose name is "brat-v1.3_Crunchy_Frog") in Desktop, then you may run:
 ```
