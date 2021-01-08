@@ -22,25 +22,32 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 3. Now you can install python 3 by running the command:
 ```
-brew install python@2
+cd ~
+wget https://raw.githubusercontent.com/Homebrew/homebrew-core/86a44a0a552c673a05f11018459c9f5faae3becc/Formula/python@2.rb
+brew install python@2.rb
+rm python@2.rb
 ```
-You can check whether python3 has been successfully installed by:
+You can check whether python2 has been successfully installed by:
+```
+python2 --version
+```
+It should return something like 
+```
+Python 2.7.16
+```
+You can also check whether python3 is on your device by:
 ```
 python --version
 ```
 It should return something like 
 ```
-Python 3.8.5
+Python 3.7.6
+```
+If you do not have python3 on your device, run the command to install:
+```
+brew install python 
 ```
 
-You can switch to python2 by running the command:
-```
-python
-```
-It should return something like 
-```
-Python 2.7.9
-```
 ## Brat
 1. Download [brat installation package](http://weaver.nlplab.org/~brat/releases/brat-v1.3_Crunchy_Frog.tar.gz)
 
