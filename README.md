@@ -11,16 +11,16 @@ Make sure you have python 2 on your device. If you don't have python, please fol
 
 1. Open "Terminal", first you can install Xcode by running the command:
 ```
-$ xcode-select --install
+xcode-select --install
 ```
 
 2. Next you can install Homebrew by running the command:
 ```
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 You can check whether brew has been successfully installed by:
 ```
-$ brew doctor
+brew doctor
 ```
 It should return something like 
 ```
