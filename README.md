@@ -104,6 +104,21 @@ Serving brat at http://127.0.0.1:8080
 ```
 
 # 2. Using New Data
+0. If your data is not cleaned, do this step:
+
+0.1 Download this repository if you haven't. 
+
+0.2 Open terminal and go to the repository's folder. For instance, if you put the folder (whose name is "brat_coreference_project") in Desktop, then you may run:
+```
+cd Desktop/brat_coreference_project
+```
+
+0.3 Copy the uncleaned txt file in this folder and run the following command:
+```
+python3 data_cleanning.py example.txt
+```
+example_cleaned.txt should be created. Use this cleaned txt for brat annotation.
+
 1. Create new folders in brat-v1.3_Crunchy_Frog/data/. Put the text you would like to annotate in the new folders in txt format.For our current project, download [annotation.conf](https://drive.google.com/file/d/1tWaT34BVbHWM9pHJe5COty4ouoGT8ch-/view?usp=sharing) and [visual.conf](https://drive.google.com/file/d/1DmHAwsyKw-pYTPHuYeS1dMpOyLQbATZu/view?usp=sharing).
 
 2. Open a new terminal. Go to your brat directory.For instance, if you put the folder (whose name is "brat-v1.3_Crunchy_Frog") in Desktop, then you may run:
@@ -173,7 +188,7 @@ Family  bgColor:#EDC1F0
 More details  could be found in [their official instruction](https://brat.nlplab.org/installation.html).
 
 # Step2: ANN and CONLL file transformation
-1. Download this repository. 
+1. Download this repository if you haven't. 
 
 2. Copy your txt and ann file from brat folder to this repository's folder on your device. 
 
