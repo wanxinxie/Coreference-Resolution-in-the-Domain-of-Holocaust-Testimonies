@@ -172,26 +172,25 @@ Family  bgColor:#EDC1F0
 
 More details  could be found in [their official instruction](https://brat.nlplab.org/installation.html).
 
-# Step2: CONLL file transformation
-1. Enter brat github repository through [this link](https://github.com/nlplab/brat)
+# Step2: ANN and CONLL file transformation
+1. Download this repository. 
 
-2. Click on the green button says "Code" and choose "Download ZIP"
+2. Copy your txt and ann file from brat folder to this repository's folder on your device. 
 
-3. Unzip the downloaded folder
+3. Rename your ann files by adding "_pretransformed" at the end. For instance, if the original ann file is called "example.ann", rename it to "example_pretransformed.ann".
 
-4. Put your txt and ann files into folder brat-master/tools 
-
-5. Open terminal, go to brat-master/tools folder
-For instance, if you put brat-master folder in Desktop, run the command:
+4. Open terminal and go to the repository's folder. For instance, if you put the folder (whose name is "brat_coreference_project") in Desktop, then you may run:
 ```
-cd Desktop/brat-master/tools
+cd Desktop/brat_coreference_project
 ```
 
-6. Create CONLL file by running the command (assume you have example.txt and example.ann):
+5. Run the following command to create Transformed ann and conll files (replace "example" with your file name):
 ```
-python3 anntoconll.py -a .ann example.txt
+python3 annconll_transformation.py example.txt example_pretransformed.ann
 ```
-Then you can find example.conll created in brat-master/tools folder.
+Two files end with ann and conll should be created in the same folder.
+
+
 
 # Step3: Training (Credit to [UCB Professor David Bamman's GitHub repo](https://github.com/dbamman))
 
@@ -199,17 +198,21 @@ Then you can find example.conll created in brat-master/tools folder.
 
 2. Click on the green button says "Code" and choose "Download ZIP"
 
-3. Unzip the downloaded folder 
+3. Unzip the downloaded folder. The folder's name should be "lrec2020-coref-master".
 
-4. Open requirment.txt in the folder; delete "pkg-resources==0.0.0" in line 9; make sure to save the change.
+4. Go to lrec2020-coref-master/data/original/tsv folder. Delete the data originally in there and copy the ann file (transformed) you just created and txt file from brat into this folder.
 
-5.Open terminal, go to lrec2020-coref folder
+5. Go to lrec2020-coref-master/data/original/conll folder, copy the conll file you just created into this folder.
+
+6. Go to lrec2020-coref-master/data/litbank_tenfold_splits folder, in this folder there are 10 folders named from "0" to "9". Each folder represents a fold for training. In each of the ten folder, there are three files end with "ids". Each ids file represents training, testing and developing set. Randomly split your data into three subsets for each fold. (Code in progress)
+
+7.Open terminal, go to lrec2020-coref folder
 For instance, if you put lrec2020-coref folder in Desktop, run the command:
 ```
 cd Desktop/lrec2020-coref
 ```
 
-6. Run the command:
+8. Run the command:
 ```
 pip3 install -r requirements.txt
 ```
@@ -220,4 +223,47 @@ spacy 2.1.0 requires jsonschema<3.0.0,>=2.6.0, but you have jsonschema 3.0.1 whi
 ```
 As long as the package in the requirment.txt is the correct version, ignore the error.
 
-7. Follow the instruction from [this step](https://github.com/dbamman/lrec2020-coref#create-10-fold-cross-validation-data)
+9. Create 10-fold cross-validation data
+```
+python3 scripts/create_crossval.py data/litbank_tenfold_splits data/original/conll/  data/litbank_tenfold_splits
+
+mkdir -p models/crossval
+mkdir -p preds/crossval
+mkdir -p logs/crossval
+```
+
+10. Download benchmark coreference scorers
+```
+git clone https://github.com/conll/reference-coreference-scorers
+```
+
+11. Generate cross-validation training and prediction script
+```
+SCORER=reference-coreference-scorers/scorer.pl
+python3 scripts/create_crossval_train_predict.py $SCORER scripts/crossval-train.sh scripts/crossval-predict.sh
+chmod 755 scripts/crossval-train.sh
+chmod 755 scripts/crossval-predict.sh
+```
+
+12. Train 10 models (each on their own training partition)
+```
+./scripts/crossval-train.sh
+```
+You can check progress in log folder.
+
+13. Create all.conll
+```
+cat data/original/conll/*conll > data/original/conll/all.conll
+```
+
+14. Use each trained model to make predictions for its own held-out test data.
+```
+./scripts/crossval-predict.sh
+cat preds/crossval/{0,1,2,3,4,5,6,7,8,9}.goldmentions.test.preds > preds/crossval/all.goldmentions.test.preds
+```
+
+15. Evaluate
+```
+python3 scripts/calc_coref_metrics.py data/original/conll/all.conll preds/crossval/all.goldmentions.test.preds $SCORER
+```
+
