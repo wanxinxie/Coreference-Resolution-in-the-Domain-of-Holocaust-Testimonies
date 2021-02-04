@@ -92,7 +92,7 @@ chmod -R g+rwx data work
 
 6. Run the standalone.py file
 ```
-sudo -u USER python standalone.py
+sudo -u USER python2 standalone.py
 ```
 where USER is your username on your device, and it could be found out by this command:
 ```
