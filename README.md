@@ -14,13 +14,15 @@ Make sure you have python 2 on your device. If you don't have python, please fol
 xcode-select --install
 ```
 
+If you are using SIL lab computer or your mac system is <= macOS Catalina version 10.15.3, download the Xcode package from [here](https://developer.apple.com/download/more/?=command%20line%20tools) and then install.
+
 2. Next you can install Homebrew by running the command:
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 
-3. Now you can install python 3 by running the command:
+3. Now you can install python 2 by running the command:
 ```
 cd ~
 wget https://raw.githubusercontent.com/Homebrew/homebrew-core/86a44a0a552c673a05f11018459c9f5faae3becc/Formula/python@2.rb
@@ -92,7 +94,7 @@ chmod -R g+rwx data work
 
 6. Run the standalone.py file
 ```
-sudo -u USER python2 standalone.py
+python2 standalone.py
 ```
 where USER is your username on your device, and it could be found out by this command:
 ```
