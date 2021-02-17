@@ -292,7 +292,7 @@ python3 scripts/calc_coref_metrics.py data/original/conll/all.conll preds/crossv
 
 3. Create a new folder in brat data folder called "trained"
 
-4. Copy 0.goldmentions.test.preds and it's corresponding txt file into that folder
+4. Copy 0.goldmentions.test.preds and it's corresponding txt file into that folder; copy conll2brat.py in this repo to the same folder as well.
 
 5. Open terminal, go to the "trained" folder
 
