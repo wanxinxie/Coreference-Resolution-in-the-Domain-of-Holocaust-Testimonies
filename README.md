@@ -284,3 +284,24 @@ cat preds/crossval/{0,1,2,3,4,5,6,7,8,9}.goldmentions.test.preds > preds/crossva
 python3 scripts/calc_coref_metrics.py data/original/conll/all.conll preds/crossval/all.goldmentions.test.preds $SCORER
 ```
 
+# Step4: View result in Brat
+
+1. Go to lrec2020-coref-master/preds/crossval folder, in which you should find a series of goldmentions.test.preds files.
+
+2. For instance, we would like to view 0.goldmentions.test.preds in brat:
+
+3. Create a new folder in brat data folder called "trained"
+
+4. Copy 0.goldmentions.test.preds and it's corresponding txt file into that folder
+
+5. Open terminal, go to the "trained" folder
+
+6. Run the following command
+```
+python3 conll2brat.py 0.goldmentions.test
+```
+a 0.goldmentions.test.ann file should be generated in the same foler
+
+7. Change 0.goldmentions.test.ann and its corresponding txt file to a same name (e.g. 0.goldmentions.test.ann -> example.ann; corresponding.txt -> example.txt)
+
+8. View it in brat
