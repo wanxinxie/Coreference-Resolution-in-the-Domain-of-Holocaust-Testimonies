@@ -217,7 +217,7 @@ Two files end with ann and conll should be created in the same folder.
 
 3. Unzip the downloaded folder. The folder's name should be "lrec2020-coref-master".
 
-4. Go to lrec2020-coref-master/data/original/tsv folder. Delete the data originally in there and copy the ann file (transformed) you just created and txt file from brat into this folder.
+4. Go to lrec2020-coref-master/data/original/tsv folder. Delete the data originally in there and copy the ann file (transformed) you just created and txt file from brat into this folder. Make sure eventually the name of txt, ann and conll files are the same. You can delete the "_transformed" in the name of ann file.
 
 5. Go to lrec2020-coref-master/data/original/conll folder, copy the conll file you just created into this folder.
 
