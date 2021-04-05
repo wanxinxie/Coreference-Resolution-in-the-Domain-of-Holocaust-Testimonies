@@ -284,24 +284,44 @@ cat preds/crossval/{0,1,2,3,4,5,6,7,8,9}.goldmentions.test.preds > preds/crossva
 python3 scripts/calc_coref_metrics.py data/original/conll/all.conll preds/crossval/all.goldmentions.test.preds $SCORER
 ```
 
-# Step4: View result in Brat
 
-1. Go to lrec2020-coref-master/preds/crossval folder, in which you should find a series of goldmentions.test.preds files.
+# Step4: Predict with new data
 
-2. For instance, we would like to view 0.goldmentions.test.preds in brat:
+1. Create a folder in lrec2020-coref-master/data, named it data_new. Create a folder in lrec2020-coref-master/preds, , named it preds_new
 
-3. Create a new folder in brat data folder called "trained"
+2. Put the conll file of the new data in lrec2020-coref-master/data/data_new.
 
-4. Copy 0.goldmentions.test.preds and it's corresponding txt file into that folder; copy conll2brat.py in this repo to the same folder as well.
+3. Open terminal, go to lrec2020-coref-master.
 
-5. Open terminal, go to the "trained" folder
-
-6. Run the following command
+4. Run the following command:
+``` 
+python3 scripts/bert_coref.py -m predict -w models/crossval/[model name] -v data/[conll name] -o preds/preds_new/[output name]
 ```
-python3 conll2brat.py 0.goldmentions.test
+
+For instance, if you want to use "0.model", with a new data whose conll file is called "example.conll", and you would like the output named as "example_output.preds" , you should run:
+``` 
+python3 scripts/bert_coref.py -m predict -w models/crossval/0.model -v data/example.conll -o preds/preds_new/example_output.preds
 ```
-a 0.goldmentions.test.ann file should be generated in the same foler
 
-7. Change 0.goldmentions.test.ann and its corresponding txt file to a same name (e.g. 0.goldmentions.test.ann -> example.ann; corresponding.txt -> example.txt)
+5. You should find your output conll file in lrec2020-coref-master/preds/preds_new.
 
-8. View it in brat
+
+# Step5: View result in Brat
+
+1. For instance, we would like to view example_output.conll in brat:
+
+2. Create a new folder in brat data folder called "trained"
+
+3. Copy example_output.preds and it's corresponding txt file into that folder; copy conll2brat.py in this repo to the same folder as well.
+
+4. Open terminal, go to the "trained" folder
+
+5. Run the following command
+```
+python3 conll2brat.py example_output
+```
+example_output.ann file should be generated in the same foler
+
+6. Change example_output.ann and its corresponding txt file to a same name (e.g. example_output.ann -> example.ann; corresponding.txt -> example.txt)
+
+7. View it in brat
