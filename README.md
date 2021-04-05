@@ -287,7 +287,7 @@ python3 scripts/calc_coref_metrics.py data/original/conll/all.conll preds/crossv
 
 # Step4: Predict with new data
 
-1. Create a folder in lrec2020-coref-master/data, named it data_new. Create a folder in lrec2020-coref-master/preds, , named it preds_new
+1. Create a folder in lrec2020-coref-master/data, named it data_new. Create a folder in lrec2020-coref-master/preds, named it preds_new
 
 2. Put the conll file of the new data in lrec2020-coref-master/data/data_new.
 
@@ -295,12 +295,12 @@ python3 scripts/calc_coref_metrics.py data/original/conll/all.conll preds/crossv
 
 4. Run the following command:
 ``` 
-python3 scripts/bert_coref.py -m predict -w models/crossval/[model name] -v data/[conll name] -o preds/preds_new/[output name]
+python3 scripts/bert_coref.py -m predict -w models/crossval/[model name] -v data/data_new/[conll name] -o preds/preds_new/[output name]
 ```
 
 For instance, if you want to use "0.model", with a new data whose conll file is called "example.conll", and you would like the output named as "example_output.preds" , you should run:
 ``` 
-python3 scripts/bert_coref.py -m predict -w models/crossval/0.model -v data/example.conll -o preds/preds_new/example_output.preds
+python3 scripts/bert_coref.py -m predict -w models/crossval/0.model -v data/data_new/example.conll -o preds/preds_new/example_output.preds
 ```
 
 5. You should find your output conll file in lrec2020-coref-master/preds/preds_new.
