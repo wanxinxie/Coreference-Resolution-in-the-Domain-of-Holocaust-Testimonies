@@ -121,7 +121,7 @@ python3 data_cleanning.py example.txt
 ```
 example_cleaned.txt should be created. Use this cleaned txt for brat annotation.
 
-1. Create new folders in brat-v1.3_Crunchy_Frog/data/. Put the text you would like to annotate in the new folders in txt format.For our current project, download [annotation.conf](https://drive.google.com/file/d/1tWaT34BVbHWM9pHJe5COty4ouoGT8ch-/view?usp=sharing) and [visual.conf](https://drive.google.com/file/d/1DmHAwsyKw-pYTPHuYeS1dMpOyLQbATZu/view?usp=sharing).
+1. Create new folders in brat-v1.3_Crunchy_Frog/data/. Put the text you would like to annotate in the new folders in txt format.For our current project, download [annotation.conf](https://drive.google.com/file/d/1FvmlhabNryETtsAf6VMQ8A_niZI0NU1K/view?usp=sharing) and [visual.conf](https://drive.google.com/file/d/1DJZJmHKFDcuT1Z4p2wI-ts8_a6B7G1ew/view?usp=sharing).
 
 2. Open a new terminal. Go to your brat directory.For instance, if you put the folder (whose name is "brat-v1.3_Crunchy_Frog") in Desktop, then you may run:
 ```
