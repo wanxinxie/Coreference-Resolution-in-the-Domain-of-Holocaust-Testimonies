@@ -1,4 +1,4 @@
-# Brat Coreference Project
+# Coreference Resolution in the Domain of Holocaust Testimonies
 This is an overview of a coreference project starting from training data preparation to using the trained model for coreference.
 
 # Step1: Annotation with Brat
